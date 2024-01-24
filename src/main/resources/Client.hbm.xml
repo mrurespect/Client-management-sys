@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.example.hiber.entity.Client" table="clients">
+        <id name="idClient" column="ID_CLIENT">
+            <generator class="identity"/>
+        </id>
+        <property name="nomClient" column="NOM_CLIENT"/>
+        <property name="prenomClient" column="PRENOM_CLIENT"/>
+        <property name="adresse" column="ADRESSE_CLIENT"/>
+        <property name="societe" column="SOCIETE"/>
+        <set name="factures" inverse="true" cascade="all">
+            <key column="ID_CLIENT"/>
+            <one-to-many class="com.example.hiber.entity.Facture"/>
+        </set>
+    </class>
+</hibernate-mapping>

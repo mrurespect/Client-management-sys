@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.example.hiber.entity.Person" table="PERSONNES">
+        <id name="idPerson" column="ID_PERSON">
+            <generator class="increment"/>
+        </id>
+        <property name="nomPerson" column="NOM_PERSON"/>
+        <property name="prenomPerson" column="PRENOM_PERSON"/>
+        <property name="age" column="AGE"/>
+        <set name="reunions" table="PERS_REUNIONS">
+            <key column="ID_PERSON"/>
+            <many-to-many column="ID_REUNION" class="com.example.hiber.entity.Reunion"/>
+        </set>
+    </class>
+</hibernate-mapping>
